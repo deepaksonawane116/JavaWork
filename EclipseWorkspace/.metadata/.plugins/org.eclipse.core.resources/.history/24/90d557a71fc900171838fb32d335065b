@@ -1,0 +1,16 @@
+
+public class PaintTypes {
+
+	String name;
+	int size;
+	double price;
+	int coverage; //in m^2
+
+	public PaintTypes(String name, int size, double price, int coverage) {
+		this.name = name;
+		this.size = size;
+		this.price = price;
+		this.coverage = coverage; //in m^2
+	}
+
+}

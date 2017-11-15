@@ -1,0 +1,9 @@
+
+public class CD extends Item{
+
+	public CD(String itemName, String typeOfItem, boolean isCheckedOut) {
+		super(itemName, typeOfItem, isCheckedOut);
+		// TODO Auto-generated constructor stub
+	}
+
+}

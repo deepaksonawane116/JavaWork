@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+
+public class PaintWizard {
+	public static void main(String[] args) {
+		ArrayList<PaintTypes> paints = new ArrayList<PaintTypes>();
+		int roomSize = 165; // in metre^2
+
+		//PaintTypes paint1 = new PaintTypes("CheapoMax", 20, 19.99, 10 * 20);
+		PaintTypes paint2 = new PaintTypes("AverageJoes", 15, 17.99, 11 * 15);
+		//PaintTypes paint3 = new PaintTypes("DuluxouriousPaint", 10, 25.00, 20 * 10);
+
+		//paints.add(paint1);
+		paints.add(paint2);
+		//paints.add(paint3);
+
+		// wastes the least
+		// coverage - room size = amount left over
+		// amount left over, lowest wins
+		PaintTypes paintWastesLeast = null;
+		int previousBest = -1;
+
+		/*
+		 * for (PaintTypes i : paints) { if (previousBest == -1) { previousBest =
+		 * i.getCoverage() - roomSize; } if ((i.getCoverage() - roomSize) <=
+		 * previousBest && previousBest >= 0) { paintWastesLeast = i; previousBest =
+		 * i.getCoverage() - roomSize; } }
+		 */
+
+		int target = roomSize;
+		for (PaintTypes i : paints) {
+			int tinCounter = roomSize / i.getCoverage();
+			if (tinCounter < 1)
+			{
+				tinCounter +=1;
+			}
+			System.out.println(tinCounter);
+			int remainderPaint = (tinCounter * i.getCoverage()) - roomSize;
+			System.out.println(remainderPaint);
+			if (remainderPaint < 0) {
+				tinCounter += 1;
+				remainderPaint = (tinCounter * i.getCoverage()) - roomSize;
+			}
+			i.setWastedpaint(remainderPaint);
+			System.out.println(remainderPaint);
+		}
+
+		// System.out.println(paintWastesLeast.getName());
+
+	}
+
+}
+
+// target (roomSize)
+// foreach paint
+// tin counter = roomSize / coverage
+// remainderPaint = (tin counter * coverage) - roomSize
+// store remainderPaint
+// if remainderPaint < previousBest &
+
+// left to paint = size of the room
+// while sq per tin

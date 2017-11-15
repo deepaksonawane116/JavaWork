@@ -1,0 +1,12 @@
+
+public class People {
+
+	private String userID;
+	private String userName;
+	
+	public People(String userID, String userName) {
+		super();
+		this.userID = userID;
+		this.userName = userName;
+	}
+}

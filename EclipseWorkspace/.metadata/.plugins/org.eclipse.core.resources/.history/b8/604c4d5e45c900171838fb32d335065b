@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.io.*;
+
+public class WorkingWithFiles {
+	public static void main(String[] args) throws IOException  {
+		ArrayList<Perople> personArrayList = new ArrayList<Perople>();
+		ArrayList<Perople> arrayToPopulate = new ArrayList<Perople>();
+		
+		Methods m = new Methods();
+		
+		String fileName = "C:\\Users\\Admin\\Documents\\testFile.txt";
+		
+		BufferedWriter buffer = null;
+		FileWriter file = null;
+		
+		Perople person1 = new Perople("Jim Dave", 21, "Fishmonger");
+		Perople person2 = new Perople("Owen Samuel", 26, "Professional Nail Filer");
+		Perople person3 = new Perople("Lucy Mel", 37, "Official Football Pitch Grass Height Measurer");
+		Perople person4 = new Perople("Racheal Gambon", 23, "Unofficial Conkers Referee");
+		Perople person5 = new Perople("Benedict Jaymon", 32, "Elevated Surface Advisor");
+		
+		personArrayList.add(person1);
+		personArrayList.add(person2);
+		personArrayList.add(person3);
+		personArrayList.add(person4);
+		personArrayList.add(person5);
+		
+		m.writeToFile(fileName, buffer, file, personArrayList);
+		m.readFromFile(fileName, arrayToPopulate);
+		
+	}
+}
+
+class Methods{
+	public void writeToFile(String fileName, BufferedWriter buffer, 
+			FileWriter file, ArrayList<Perople> personArrayList) throws IOException {
+		file = new FileWriter(fileName);
+		buffer = new BufferedWriter(file);
+		
+		for(Perople i : personArrayList)
+		{
+			String contentToWrite = i.getName() + ", " + i.getAge() + ", " + i.getJobTitle() + "\r\n";  //for some reason \r\n is needed on notepad?
+			
+			buffer.write(contentToWrite);
+		}
+		
+		buffer.close();
+		file.close();
+	}
+	
+	public void readFromFile(String fileName, ArrayList<Perople> arrayToPopulate) throws IOException {
+		BufferedReader in = new BufferedReader(new FileReader(fileName));
+		String line = null;
+		//in.readLine().split(", ");
+		//System.out.println(in.readLine());
+		//String.split(", ");
+		
+		/*while ((line = in.readLine()) != null){
+			String name = line.split(", ").toString();
+			System.out.println(name);
+			String age = line.split(", ").toString();
+			String jobTitle = line.split("\r\n").toString();
+			System.out.println("-1");
+			
+			int ageInt = Integer.parseInt(age);
+			System.out.println("0");
+			
+			Perople person1 = new Perople(name, ageInt, jobTitle);
+			System.out.println("1");
+			arrayToPopulate.add(person1);
+			System.out.println(line);
+		}
+		in.close();	*/
+		line = in.readLine();
+		for (String output : line.split(", ")) {
+			System.out.println(output);
+		}
+		in.close();
+	}
+}
+

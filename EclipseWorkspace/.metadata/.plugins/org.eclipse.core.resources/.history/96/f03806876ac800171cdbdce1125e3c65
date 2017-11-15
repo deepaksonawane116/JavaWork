@@ -1,0 +1,66 @@
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+				
+		System.out.println(NewHelloWorld());
+		
+		//AcceptString("Print out this string");
+		System.out.println("ConditionIsFalse");
+		System.out.println(MathFuncBoolTRUEToAdd(5,9,false));
+		System.out.println("");
+		
+		System.out.println("ConditionIsTrue");
+		System.out.println(MathFuncBoolTRUEToAdd(4,2,true));
+		System.out.println("");
+		
+		System.out.println("OneNumberIs0");
+		System.out.println(MathFuncBoolTRUEToAdd(5,0,false));
+		System.out.println(MathFuncBoolTRUEToAdd(0,9,false));
+		System.out.println("");
+		
+		System.out.println("ForLoop");
+		for (int i = 0; i < 10; i++)
+		{
+			System.out.println(MathFuncBoolTRUEToAdd(5,i,false));
+		}
+		System.out.println("");
+		
+	}
+	
+
+	/*public static void AcceptString (String toPass) {
+		System.out.println(toPass);
+	}*/
+	
+	public static String NewHelloWorld() {
+		 String outstring = "Hello World!";
+		
+		return outstring;
+	}
+	
+	public static int MathFuncBoolTRUEToAdd(int num1, int num2, boolean toAdd) {
+		int num3;
+		
+		if (num1 == 0)
+		{
+			return num2;
+		}
+		
+		if (num2 == 0)
+		{
+			return num1;
+		}
+		
+		if (toAdd) {
+			num3 = num1 + num2;
+		} else {
+			num3 = num1 * num2;
+		}
+		return num3;
+	}
+}
+		
+
+	
+

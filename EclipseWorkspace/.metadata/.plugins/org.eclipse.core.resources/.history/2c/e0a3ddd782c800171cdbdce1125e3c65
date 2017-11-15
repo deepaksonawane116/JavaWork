@@ -1,0 +1,15 @@
+
+public class Vehicle {
+	String make;
+	String model;
+	int yearMade;
+	boolean hasWheels;
+	
+	public Vehicle(String make, String model, int yearMade, boolean hasWheels)
+	{
+		this.make = make;
+		this.model = model;
+		this.yearMade = yearMade;
+		this.hasWheels = hasWheels;
+	}
+}

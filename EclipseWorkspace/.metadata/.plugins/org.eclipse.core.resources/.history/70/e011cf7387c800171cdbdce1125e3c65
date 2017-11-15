@@ -1,0 +1,9 @@
+
+public class Tank extends Vehicle{
+
+	public Tank(String make, String model, int yearMade, boolean hasWheels) {
+		super(make, model, yearMade, false, "Tank");
+		// TODO Auto-generated constructor stub
+	}
+
+}

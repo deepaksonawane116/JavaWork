@@ -1,0 +1,15 @@
+
+public class DVD extends Item{
+
+	private int runtime;
+	private String genre;
+	
+	public DVD(String itemName, String typeOfItem,
+			boolean isCheckedOut, int runtime, String genre) {
+		super(itemName, typeOfItem, isCheckedOut);
+		this.runtime = runtime;
+		this.genre = genre;
+		
+	}
+
+}

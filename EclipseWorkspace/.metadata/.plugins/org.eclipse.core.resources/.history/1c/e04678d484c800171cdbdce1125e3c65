@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class Garage {
+	
+	ArrayList<Vehicle> vehiclesInGarage = new ArrayList<Vehicle>();
+
+	public void addVehicle (Vehicle vehicleToAdd)
+	{
+		//personArrayList.add(person1);
+		vehiclesInGarage.add(vehicleToAdd);
+	}
+	
+	public void removeVehicle (Vehicle vehicleToRemove)
+	{
+		vehiclesInGarage.remove(vehicleToRemove);
+	}
+	
+	public void removeVehicle (String type)
+	{
+		for(Vehicle i : vehiclesInGarage)
+		{
+			if(i.type.equals(type))
+			{
+				vehiclesInGarage.remove(i);
+			}
+		}
+	}
+	
+	public void repairBill()
+	{
+		
+	}
+	
+	public void removeAllVehicles()
+	{
+		//for(int i = vehiclesInGarage.length();
+		{
+			
+		}
+	}
+}

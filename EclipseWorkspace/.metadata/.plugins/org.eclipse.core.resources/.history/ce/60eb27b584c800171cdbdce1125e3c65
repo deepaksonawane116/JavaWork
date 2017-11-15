@@ -1,0 +1,12 @@
+
+public class Car extends Vehicle{
+	String colour;
+
+	public Car(String make, String model, int yearMade, boolean hasWheels) {
+		super(make, model, yearMade, hasWheels, "Car");
+		
+		
+		// TODO Auto-generated constructor stub
+	}
+
+}

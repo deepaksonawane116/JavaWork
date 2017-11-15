@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+
+public abstract class Item {
+	
+	ArrayList<int[]> uniqueIDList = new ArrayList<int[]>();
+	private String itemName;
+	private String typeOfItem;
+	private boolean isCheckedOut;
+	private static int uniqueID;
+
+	public Item(String itemName, String typeOfItem, boolean isCheckedOut) {
+		this.itemName = itemName;
+		this.typeOfItem = typeOfItem;
+		this.isCheckedOut = isCheckedOut;
+		this.uniqueID = generateUniqueID();
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+	
+	private int generateUniqueID() {
+		return 0;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public String getTypeOfItem() {
+		return typeOfItem;
+	}
+
+	public void setTypeOfItem(String typeOfItem) {
+		this.typeOfItem = typeOfItem;
+	}
+
+	public boolean isCheckedOut() {
+		return isCheckedOut;
+	}
+
+	public void setCheckedOut(boolean isCheckedOut) {
+		this.isCheckedOut = isCheckedOut;
+	}
+
+}

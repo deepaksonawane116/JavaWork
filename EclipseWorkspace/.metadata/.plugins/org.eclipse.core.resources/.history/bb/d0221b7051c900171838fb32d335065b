@@ -1,0 +1,12 @@
+
+public class LibraryFunctions {
+
+	public void checkOutItem(Item item) {
+		if(item.isCheckedOut()) {
+			System.out.println("Item is already checked out");
+		} else {
+			item.setCheckedOut(true);
+		}
+	}
+	
+}

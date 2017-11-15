@@ -1,0 +1,12 @@
+
+public class LibraryRunner {
+
+	public static void main(String[] args) {
+		
+		LibraryFunctions lf = new LibraryFunctions();
+		
+		Book b1 =  new Book("Call of Cthulu", "Book", false, "H.P. Lovecraft", 25);
+		
+		
+	}
+}

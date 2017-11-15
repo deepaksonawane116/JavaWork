@@ -1,0 +1,15 @@
+
+public class Book extends Item{
+
+	private String author;
+	private int numberOfPages;
+	
+	public Book(String itemName, String typeOfItem, 
+			boolean isCheckedOut, String author, int numberOfPages) {
+		super(itemName, typeOfItem, isCheckedOut);
+		this.author = author;
+		this.numberOfPages = numberOfPages;
+	}
+	
+
+}

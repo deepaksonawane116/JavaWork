@@ -1,0 +1,8 @@
+
+public class main {
+	
+	public static void main(String[] args) {
+		
+		Car v1 = new Car("Ford", "Focus", 2001, true);
+	}
+}

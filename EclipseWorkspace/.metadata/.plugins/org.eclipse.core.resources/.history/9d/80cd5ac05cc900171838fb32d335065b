@@ -1,0 +1,53 @@
+import java.util.LinkedList;
+
+public class LibraryFunctions {
+	private LinkedList<Item> itemList = new LinkedList<Item>();
+	private LinkedList<People> userList = new LinkedList<People>();
+
+	public void checkOutItem(Item item) {
+		if(item.isCheckedOut()) {
+			System.out.println("Item is already checked out");
+		} else {
+			item.setCheckedOut(true);
+			System.out.println("Item: " + item.getItemName() + ", has been checked out");
+		}
+	}
+	
+	public void checkInItem(Item item) {
+		if(!item.isCheckedOut()) {
+			System.out.println("Item is already checked in");
+		} else {
+			item.setCheckedOut(false);
+			System.out.println("Item: " + item.getItemName() + ", has been checked in");
+		}
+	}
+	
+	public void addItem(Item item) {
+		itemList.add(item);
+	}
+	
+	public void removeItem(Item item) {
+		itemList.remove(item);
+	}
+	
+	public void updateItem(Item itenOrigin, Item itemNew) {
+		//Item tmpItem = new Item(itemNew);
+		//return tmpItem;
+		//itemOrigin = itemNew;
+		itemOrigin.setCheckedOut(itemNew.isCheckedOut());
+	}
+	
+	public void registerUser(People newUser) {
+		userList.add(newUser);
+	}
+	
+	public void deleteUser(People userToRemove) {
+		userList.remove(userToRemove);
+	}
+	
+	public void updateUser(People originalUser, People updatedUser) {
+		originalUser = updatedUser;
+	}
+	
+	
+}

@@ -1,0 +1,125 @@
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		
+		int[] intArray = {1,2,3,4,5,6,7,8,9,10};
+		int[] populateArray = new int[10];
+		
+		System.out.println(newHelloWorld());
+		System.out.println("");
+		
+		//AcceptString("Print out this string");
+		
+		System.out.println("ConditionIsFalse");
+		System.out.println(mathFuncBoolTRUEToAdd(5,9,false));
+		System.out.println("");
+		
+		System.out.println("ConditionIsTrue");
+		System.out.println(mathFuncBoolTRUEToAdd(4,2,true));
+		System.out.println("");
+		
+		System.out.println("OneNumberIs0");
+		System.out.println(mathFuncBoolTRUEToAdd(5,0,false));
+		System.out.println(mathFuncBoolTRUEToAdd(0,9,false));
+		System.out.println("");
+		
+		forLoop(intArray);
+		
+		System.out.println("ValuesInArray");
+		for (int i = 0; i < intArray.length; i++)
+		{
+			System.out.println(intArray[i]);
+		}
+		System.out.println("");
+		
+		System.out.println("PopulateArray");
+		for (int i = 1; i < 10; i++) 
+		{
+			populateArray[i] = i;
+			System.out.println(populateArray[i]);
+		}
+		System.out.println("MultiplyBy10");
+		for (int i = 1; i < populateArray.length; i++) 
+		{
+			populateArray[i] *= 10;
+			System.out.println(populateArray[i]);
+		}
+		System.out.println("");
+		
+		System.out.println("BlackJack");
+		System.out.println(blackJack(1,20));
+		System.out.println(blackJack(2,19));
+		System.out.println(blackJack(22,20));
+		System.out.println(blackJack(19,1));
+		
+	}
+	
+	/*public static void AcceptString (String toPass) {
+		System.out.println(toPass);
+	}*/
+	
+	public static String newHelloWorld() {
+		 String outstring = "Hello World!";
+		
+		return outstring;
+	}
+	
+	public static void forLoop(int[] intArray)
+	{
+		System.out.println("ForLoop");
+		for (int i = 0; i < 10; i++)
+		{
+			System.out.println(mathFuncBoolTRUEToAdd(intArray[i],i,false));
+		}
+		System.out.println("");
+	}
+	
+	public static int mathFuncBoolTRUEToAdd(int num1, int num2, boolean toAdd) {
+		int num3;
+		
+		if (num1 == 0)
+		{
+			return num2;
+		}
+		
+		if (num2 == 0)
+		{
+			return num1;
+		}
+		
+		if (toAdd) {
+			num3 = num1 + num2;
+		} else {
+			num3 = num1 * num2;
+		}
+		return num3;
+	}
+	
+	public static int blackJack(int num1, int num2) 
+	{
+		int returnInt = 0;
+		int num1difference = 0;
+		int num2difference = 0;
+		int twenty1 = 21;
+		
+		num1difference = twenty1-num1;
+		num2difference = twenty1-num2;
+		
+		if(num1difference<num2difference && num1<=21)
+		{
+			returnInt = num1;
+		}
+		if (num2<=21)
+		{
+			returnInt = num2;
+		}
+		
+		return returnInt;
+	}
+	
+}
+		
+
+	
+

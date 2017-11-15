@@ -1,0 +1,16 @@
+
+public class Person {
+	
+	String name;
+	int age;
+	String jobTitle;
+
+	public String ToString(String name, int age, String jobTitle)
+	{
+		String newString = null;
+		
+		newString = "Name: " + name + ". Age: " + age + ". Title: " + jobTitle + ".";
+		
+		return newString;
+	}
+}

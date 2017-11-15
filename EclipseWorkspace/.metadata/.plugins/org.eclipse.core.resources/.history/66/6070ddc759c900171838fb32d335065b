@@ -1,0 +1,19 @@
+
+public class LibraryRunner {
+
+	public static void main(String[] args) {
+		
+		LibraryFunctions lf = new LibraryFunctions();
+		
+		Book b1 =  new Book("Call of Cthulu", "Book", false, "H.P. Lovecraft", 25);
+		Book b2 =  new Book("Call of Cthulu2", "Book", false, "H.P. Lovecraft2", 251);
+		Book b3 =  new Book("Call of Cthulu3", "Book", false, "H.P. Lovecraft3", 252);
+		
+		lf.addItem(b1);
+		lf.addItem(b2);
+		lf.addItem(b3);
+		
+		System.out.println(b2.getUniqueID());
+		
+	}
+}

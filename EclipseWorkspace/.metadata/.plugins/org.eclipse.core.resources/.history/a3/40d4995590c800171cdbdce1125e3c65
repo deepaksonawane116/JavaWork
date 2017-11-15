@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+
+public class PaintTypes {
+
+	ArrayList<PaintTypes> paintTypesArrayList = new ArrayList<PaintTypes>();
+	
+	String name;
+	int size;
+	float price;
+	int coverage;
+	
+
+	public PaintTypes(String name, int size, double price, int coverage)
+	{
+		this.name = name;
+		this.size = size;
+		this.price = price;
+		this.coverage = coverage;
+	}
+	
+	public static void addPaint (PaintTypes paintToAdd)
+	{
+		//personArrayList.add(person1);
+		vehiclesInGarage.add(vehicleToAdd);
+	}
+}

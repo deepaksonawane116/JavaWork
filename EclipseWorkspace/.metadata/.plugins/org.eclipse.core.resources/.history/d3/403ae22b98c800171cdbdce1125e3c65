@@ -1,0 +1,9 @@
+
+public class PrimeNumbers1 {
+	public static void main(String[] args) {
+		long min = 0;
+		long max = 3000000000;
+		
+		
+	}
+}

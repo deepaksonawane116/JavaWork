@@ -1,0 +1,9 @@
+
+public class DVD extends Item{
+
+	public DVD(String itemName, String typeOfItem, boolean isCheckedOut) {
+		super(itemName, typeOfItem, isCheckedOut);
+		// TODO Auto-generated constructor stub
+	}
+
+}

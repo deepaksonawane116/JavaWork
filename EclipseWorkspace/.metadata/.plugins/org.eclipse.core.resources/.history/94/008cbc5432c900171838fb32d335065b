@@ -1,0 +1,72 @@
+import java.util.ArrayList;
+
+public class PaintWizard {
+	public static void main(String[] args) {
+		ArrayList<PaintTypes> paints = new ArrayList<PaintTypes>();
+		
+		Methods m = new Methods();
+
+		int roomSize = 400; // in metre^2
+
+		PaintTypes paint1 = new PaintTypes("CheapoMax", 20, 19.99, 10 * 20);
+		PaintTypes paint2 = new PaintTypes("AverageJoes", 15, 17.99, 11 * 15);
+		PaintTypes paint3 = new PaintTypes("DuluxouriousPaint", 10, 25.00, 20 * 10);
+
+		paints.add(paint1);
+		paints.add(paint2);
+		paints.add(paint3);
+
+		PaintTypes paintWastesLeast = paints.get(0);
+		PaintTypes paintCostsLeast = paints.get(0);
+		
+		m.printLogic(paints, roomSize);
+
+		for (PaintTypes i : paints) {
+			if (i.getWastedPaint() < paintWastesLeast.getWastedPaint()) {
+				paintWastesLeast = i;
+			}
+		}
+
+		for (PaintTypes i : paints) {
+			if (i.getTotalPrice() < paintWastesLeast.getTotalPrice()) {
+				paintCostsLeast = i;
+			}
+		}
+
+		System.out.println("");
+		System.out.println(paintWastesLeast.getName() + " wastes the least amount of paint");
+
+		System.out.println("");
+		System.out.println(paintCostsLeast.getName() + " will be the cheapest in total");
+	}
+
+}
+
+class Methods {
+
+	public void printLogic(ArrayList<PaintTypes> paints, int roomSize) {
+		int tinCounter = 1;
+		for (PaintTypes i : paints) {
+			int remainderPaint = (tinCounter * i.getCoverage()) - roomSize;
+			while (remainderPaint < 0) {
+				tinCounter += 1;
+				remainderPaint = (tinCounter * i.getCoverage()) - roomSize;
+			}
+			i.setWastedPaint(remainderPaint);
+			System.out.println(i.getName() + " tins needed: " + tinCounter);
+			i.setTotalPrice(i.getPrice() * tinCounter);
+			System.out.println("Remainder paint: " + remainderPaint);
+			tinCounter = 1;
+		}
+	}
+}
+
+// target (roomSize)
+// foreach paint
+// tin counter = roomSize / coverage
+// remainderPaint = (tin counter * coverage) - roomSize
+// store remainderPaint
+// if remainderPaint < previousBest &
+
+// left to paint = size of the room
+// while sq per tin

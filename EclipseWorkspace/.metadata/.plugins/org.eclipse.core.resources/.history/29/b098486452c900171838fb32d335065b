@@ -1,0 +1,9 @@
+
+public class Fiction extends Book{
+
+	public Fiction(String itemName, String typeOfItem, boolean isCheckedOut) {
+		super(itemName, typeOfItem, isCheckedOut);
+		// TODO Auto-generated constructor stub
+	}
+
+}

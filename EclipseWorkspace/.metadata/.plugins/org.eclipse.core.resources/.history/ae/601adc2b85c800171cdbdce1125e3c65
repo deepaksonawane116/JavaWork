@@ -1,0 +1,18 @@
+
+public class main {
+	
+	public static void main(String[] args) {
+		
+		Car v1 = new Car("Ford", "Focus", 2001, true, "Blue");
+		
+		System.out.println(v1.colour);
+		System.out.println(v1.hasWheels);
+		System.out.println(v1.make);
+		System.out.println(v1.model);
+		System.out.println(v1.type);
+		System.out.println(v1.yearMade);
+		
+		vehiclesInGarage.addVehicle(v1);
+		
+	}
+}

@@ -1,0 +1,28 @@
+
+public abstract class Item {
+
+	private String itemName;
+	private String typeOfItem;
+	private boolean isCheckedOut;
+	
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public String getTypeOfItem() {
+		return typeOfItem;
+	}
+	public void setTypeOfItem(String typeOfItem) {
+		this.typeOfItem = typeOfItem;
+	}
+	public boolean isCheckedOut() {
+		return isCheckedOut;
+	}
+	public void setCheckedOut(boolean isCheckedOut) {
+		this.isCheckedOut = isCheckedOut;
+	}
+	
+	
+}

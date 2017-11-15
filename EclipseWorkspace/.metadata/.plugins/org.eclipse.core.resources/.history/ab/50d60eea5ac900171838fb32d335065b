@@ -1,0 +1,29 @@
+
+public class LibraryRunner {
+
+	public static void main(String[] args) {
+		
+		LibraryFunctions lf = new LibraryFunctions();
+		
+		Book b1 =  new Book("Call of Cthulu", "Book", false, "H.P. Lovecraft", 25);
+		Book b2 =  new Book("Call of Cthulu2", "Book", false, "H.P. Lovecraft2", 251);
+		Book b3 =  new Book("Call of Cthulu3", "Book", false, "H.P. Lovecraft3", 252);
+		
+		DVD dvd1 = new DVD("Frozen", "DVD", true, 71, "Kids");
+		DVD dvd2 = new DVD("Lord of the Rings: The Two Towers", "DVD", false, 133, "Fantasy");
+		DVD dvd3 = new DVD("Final Destination", "DVD", true, 85, "Horror");
+		DVD dvd4 = new DVD("Hot Fuzz", "DVD", false, 92, "Comedy");
+		
+		lf.addItem(b1);
+		lf.addItem(b2);
+		lf.addItem(b3);
+		
+		lf.addItem(dvd1);
+		lf.addItem(dvd2);
+		lf.addItem(dvd3);
+		lf.addItem(dvd4);
+		
+		System.out.println(b3.getAuthor());
+		
+	}
+}

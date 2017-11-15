@@ -1,0 +1,37 @@
+
+public class main {
+	
+	public static void main(String[] args) {
+		
+			
+		Car v1 = new Car("Ford", "Focus", 2001, true, "Blue");
+		Motorcycle v2 = new Motorcycle("Ford", "Focus", 2001, true, "ThereIsExtraDamageOnTheSeat");
+		Car v3 = new Car("Renault", "Clio", 2011, true, "Silver");
+		Tank v4 = new Tank("General Dynamics", "M1 Series", 2015, false, true);
+		Motorcycle v5 = new Motorcycle("Ford", "Focus", 2001, true, "ThereIsExtraDamageOnTheSeat");
+		
+		Garage.addVehicle(v1);
+		Garage.addVehicle(v2);
+		Garage.addVehicle(v3);
+		Garage.addVehicle(v4);
+		Garage.addVehicle(v5);
+		System.out.println("Added 4 vehicles");
+		
+		
+		Garage.valuesInArray();
+		System.out.println("");
+		
+		System.out.println("Remove 1 vehicle");
+		Garage.removeVehicle(v4);
+		
+		Garage.valuesInArray();
+		System.out.println("");
+		
+		System.out.println("Remove all Motorcycles types");
+		Garage.removeVehicle("Car");
+		
+		Garage.valuesInArray();
+		System.out.println("");
+		
+	}
+}
