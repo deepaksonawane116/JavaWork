@@ -1,0 +1,59 @@
+
+public class Examples {
+
+	public static void main(String[] args) {
+		System.out.println(findLastWord("doggoesbark"));
+
+		System.out.println(doubleUp("AAbb"));
+		
+		System.out.println(findContentsOfSandwich("breadjambread"));
+		System.out.println(findContentsOfSandwich("xxbreadyy"));
+	}
+
+	// example parameters
+	// doggoesbark -> bark
+
+	public static String findLastWord(String input) {
+		int goesIndex = input.indexOf("goes") + 4;
+		String subString = input.substring(goesIndex, input.length());
+		return subString;
+	}
+
+	// task 1
+	// doubleChar("The") -> TThhee
+
+	public static String doubleUp(String origin) {
+		String doubled = "";
+		for (int i = 0; i < origin.length(); i++) {
+			doubled += origin.charAt(i);
+			doubled += origin.charAt(i);
+		}
+
+		return doubled;
+	}
+	
+	//task 2
+	//getSandwich("breadjambread") -> "jam"
+	
+	public static String findContentsOfSandwich(String input) {
+		int breadIndex = input.indexOf("bread") + 5;
+		String subString = input.substring(breadIndex, input.length());
+		
+		//boolean check if "bread" occurs again
+		if (subString.contains("bread"))
+		{
+			System.out.println("true");
+			breadIndex = subString.indexOf("bread");
+		} else {
+			return "";
+		}
+		//if so
+		//breadIndex = subString.indexOf("bread");
+		//else
+		subString = subString.substring(0, breadIndex );
+		
+		return subString;
+	}
+	
+	
+}

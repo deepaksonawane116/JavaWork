@@ -4,9 +4,9 @@ public class CD extends Item{
 	private String artist;
 	private int numberOfTracks;
 	
-	public CD(String itemName, String typeOfItem,
-			boolean isCheckedOut, String artist, int numberOfTracks) {
-		super(itemName, "CD", isCheckedOut);
+	public CD(String itemName, boolean isCheckedOut, String artist, int numberOfTracks, int id) {
+		super(itemName,isCheckedOut, id);
+		this.setTypeOfItem("CD");
 		this.artist = artist;
 		this.numberOfTracks = numberOfTracks;
 	}

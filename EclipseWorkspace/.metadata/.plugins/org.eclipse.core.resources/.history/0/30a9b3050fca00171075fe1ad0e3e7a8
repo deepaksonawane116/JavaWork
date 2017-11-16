@@ -1,0 +1,20 @@
+
+public class FactorialFinder {
+
+	public static void main(String[] args)
+	{
+		int counter = 1;
+		int target = 740;
+		int temp = target;
+		
+		while (target != counter)
+		{
+			
+			target = target/counter;
+			
+			counter++;
+		}
+		
+		System.out.println(temp + " = " + counter + "!");
+	}
+}

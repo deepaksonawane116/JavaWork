@@ -4,9 +4,9 @@ public class DVD extends Item{
 	private int runtime;
 	private String genre;
 	
-	public DVD(String itemName, String typeOfItem,
-			boolean isCheckedOut, int runtime, String genre) {
-		super(itemName, "DVD", isCheckedOut);
+	public DVD(String itemName, boolean isCheckedOut, int runtime, String genre, int id) {
+		super(itemName, isCheckedOut, id);
+		this.setTypeOfItem("DVD");
 		this.runtime = runtime;
 		this.genre = genre;
 		
@@ -18,7 +18,7 @@ public class DVD extends Item{
 
 	public void setRuntime(int runtime) {
 		this.runtime = runtime;
-	}
+	}	
 
 	public String getGenre() {
 		return genre;

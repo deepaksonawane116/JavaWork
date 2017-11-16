@@ -1,9 +1,24 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class LibraryFunctions {
-	private LinkedList<Item> itemList = new LinkedList<Item>();
-	private LinkedList<People> userList = new LinkedList<People>();
+	private List<Item> itemList = new LinkedList<Item>();
+	private List<People> userList = new LinkedList<People>();
+	
+	String writeToFile = "C:\\Users\\Admin\\Documents\\LibraryWrite.txt";
+	String readFromFile = "C:\\Users\\Admin\\Documents\\LibraryRead.txt";
+	
+	BufferedWriter buffer = null;
+	FileWriter file = null;
 
+	private static int uniqueID = 1;
+	
 	public void checkOutItem(Item item) {
 		if(item.isCheckedOut()) {
 			System.out.println("Item is already checked out");
@@ -22,20 +37,33 @@ public class LibraryFunctions {
 		}
 	}
 	
-	public void findItem(Item item) {
+	public Item findItem(Item item) {
 		for (Item i : itemList)
 		{
 			if (i.getItemName().equals(item.getItemName()))
 			{
 				System.out.println("You found " + item.getItemName());
-				return;
+				return i;
 			} 
 		}
 		System.out.println("Item not found");
+		return null;
 	}
 	
 	public void addItem(Item item) {
+		item.setID(uniqueID++);
 		itemList.add(item);
+	}
+	
+	public int getItemIDFromList(Item item) {
+		try {
+			return findItem(item).getUniqueID();
+		} 
+		catch (Exception e)
+		{
+			System.out.println("Item ID not found");
+			return 0;
+		} 
 	}
 	
 	public void removeItem(Item item) {
@@ -67,5 +95,47 @@ public class LibraryFunctions {
 		originalUser = updatedUser;
 	}
 	
+	public void writeToFile()
+			throws IOException {
+		file = new FileWriter(writeToFile);
+		buffer = new BufferedWriter(file);
+
+		for (Item i : itemList) {
+			String contentToWrite = "";
+			String s = i.getTypeOfItem();
+			System.out.println(s);
+			
+			if (s.equals("Book"))
+				contentToWrite = i.getItemName() + ", " + i.getTypeOfItem() + ", " + i.getUniqueID() + ", " + i.isCheckedOut() + ", " + ((Book)i).getAuthor() +  ", " + ((Book) i).getNumberOfPages() + "\r\n"; 
+			if (s.equals("DVD"))
+				contentToWrite = i.getItemName() + ", " + i.getTypeOfItem() + ", " + i.getUniqueID() + ", " + i.isCheckedOut() + ", " + ((DVD )i).getGenre() +  ", " + ((DVD) i).getRuntime() + "\r\n"; 
+			if (s.equals("CD"))
+				contentToWrite = i.getItemName() + ", " + i.getTypeOfItem() + ", " + i.getUniqueID() + ", " + i.isCheckedOut() + ", " + ((CD)i).getArtist() +  ", " + ((CD) i).getNumberOfTracks() + "\r\n"; 
+			buffer.write(contentToWrite);
+		}
+		buffer.close();
+		file.close();
+	}
+	
+	public void readFromFile() throws IOException {
+		BufferedReader in = new BufferedReader(new FileReader(readFromFile));
+		String line = null;
+		while ((line = in.readLine()) != null) {
+			String[] inputs = line.split(", ");
+			Item newItem = null;
+			String s = inputs[1];
+			switch (s)
+			{
+				case "Book":
+					newItem = new Book(inputs[0], Boolean.parseBoolean(inputs[3]), inputs[4], Integer.parseInt(inputs[5]), Integer.parseInt(inputs[2]));
+				case "DVD" :
+					newItem = new DVD(inputs[0], Boolean.parseBoolean(inputs[3]), Integer.parseInt(inputs[5]), inputs[4], Integer.parseInt(inputs[2]));
+				case "CD" :
+					newItem = new CD(inputs[0], Boolean.parseBoolean(inputs[3]), inputs[4], Integer.parseInt(inputs[5]), Integer.parseInt(inputs[2]));
+			}
+			itemList.add(newItem);
+		}
+		in.close();
+	}
 	
 }

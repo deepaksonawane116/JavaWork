@@ -1,0 +1,86 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class LibraryFunctions {
+	private List<Item> itemList = new LinkedList<Item>();
+	private List<People> userList = new LinkedList<People>();
+
+	private static int uniqueID = 1;
+	
+	public void checkOutItem(Item item) {
+		if(item.isCheckedOut()) {
+			System.out.println("Item is already checked out");
+		} else {
+			item.setCheckedOut(true);
+			System.out.println("Item: " + item.getItemName() + ", has been checked out");
+		}
+	}
+	
+	public void checkInItem(Item item) {
+		if(!item.isCheckedOut()) {
+			System.out.println("Item is already checked in");
+		} else {
+			item.setCheckedOut(false);
+			System.out.println("Item: " + item.getItemName() + ", has been checked in");
+		}
+	}
+	
+	public void findItem(Item item) {
+		for (Item i : itemList)
+		{
+			if (i.getItemName().equals(item.getItemName()))
+			{
+				System.out.println("You found " + item.getItemName());
+				return;
+			} 
+		}
+		System.out.println("Item not found");
+	}
+	
+	public void addItem(Item item) {
+		item.setID(uniqueID++);
+		itemList.add(item);
+	}
+	
+	public int getItemIDFromList(Item item) {
+		try {
+		return item.getUniqueID();
+		} 
+		catch (Exception e)
+		{
+			System.out.println("Item ID not found");
+			return 0;
+		} 
+	}
+	
+	public void removeItem(Item item) {
+		itemList.remove(item);
+		
+		System.out.println(item.getItemName() + " has been removed.");
+	}
+	
+	public void updateItem(Item itemOrigin, Item itemNew) {
+		//Item tmpItem = new Item(itemNew);
+		//return tmpItem;
+		//itemOrigin = itemNew;
+		itemOrigin.setItemName(itemNew.getItemName());
+		itemOrigin.setTypeOfItem(itemNew.getTypeOfItem());
+		itemOrigin.setCheckedOut(itemNew.isCheckedOut());
+		
+		//itemOrigin.get
+	}
+	
+	public void registerUser(People newUser) {
+		userList.add(newUser);
+	}
+	
+	public void deleteUser(People userToRemove) {
+		userList.remove(userToRemove);
+	}
+	
+	public void updateUser(People originalUser, People updatedUser) {
+		originalUser = updatedUser;
+	}
+	
+	
+}

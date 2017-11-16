@@ -4,9 +4,9 @@ public class Book extends Item{
 	private String author;
 	private int numberOfPages;
 	
-	public Book(String itemName, String typeOfItem, 
-			boolean isCheckedOut, String author, int numberOfPages) {
-		super(itemName, "Book", isCheckedOut);
+	public Book(String itemName, boolean isCheckedOut, String author, int numberOfPages, int id) {
+		super(itemName, isCheckedOut, id);
+		this.setTypeOfItem("Book");
 		this.author = author;
 		this.numberOfPages = numberOfPages;
 	}

@@ -1,0 +1,108 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class LibraryFunctions {
+	private List<Item> itemList = new LinkedList<Item>();
+	private List<People> userList = new LinkedList<People>();
+
+	private static int uniqueID = 1;
+	
+	public void checkOutItem(Item item) {
+		if(item.isCheckedOut()) {
+			System.out.println("Item is already checked out");
+		} else {
+			item.setCheckedOut(true);
+			System.out.println("Item: " + item.getItemName() + ", has been checked out");
+		}
+	}
+	
+	public void checkInItem(Item item) {
+		if(!item.isCheckedOut()) {
+			System.out.println("Item is already checked in");
+		} else {
+			item.setCheckedOut(false);
+			System.out.println("Item: " + item.getItemName() + ", has been checked in");
+		}
+	}
+	
+	public Item findItem(Item item) {
+		for (Item i : itemList)
+		{
+			if (i.getItemName().equals(item.getItemName()))
+			{
+				System.out.println("You found " + item.getItemName());
+				return i;
+			} 
+		}
+		System.out.println("Item not found");
+		return null;
+	}
+	
+	public void addItem(Item item) {
+		item.setID(uniqueID++);
+		itemList.add(item);
+	}
+	
+	public int getItemIDFromList(Item item) {
+		try {
+			return findItem(item).getUniqueID();
+		} 
+		catch (Exception e)
+		{
+			System.out.println("Item ID not found");
+			return 0;
+		} 
+	}
+	
+	public void removeItem(Item item) {
+		itemList.remove(item);
+		
+		System.out.println(item.getItemName() + " has been removed.");
+	}
+	
+	public void updateItem(Item itemOrigin, Item itemNew) {
+		//Item tmpItem = new Item(itemNew);
+		//return tmpItem;
+		//itemOrigin = itemNew;
+		itemOrigin.setItemName(itemNew.getItemName());
+		itemOrigin.setTypeOfItem(itemNew.getTypeOfItem());
+		itemOrigin.setCheckedOut(itemNew.isCheckedOut());
+		
+		//itemOrigin.get
+	}
+	
+	public void registerUser(People newUser) {
+		userList.add(newUser);
+	}
+	
+	public void deleteUser(People userToRemove) {
+		userList.remove(userToRemove);
+	}
+	
+	public void updateUser(People originalUser, People updatedUser) {
+		originalUser = updatedUser;
+	}
+	
+	public void writeToFile(String fileName, BufferedWriter buffer, FileWriter file, ArrayList<Perople> personArrayList)
+			throws IOException {
+		file = new FileWriter(fileName);
+		buffer = new BufferedWriter(file);
+
+		for (Item i : itemList) {
+			String contentToWrite = i.getItemName() + ", " + i.getTypeOfItem() + ", " + i.getUniqueID() + "\r\n"; // for some
+																										// reason \r\n
+																										// is needed on
+																										// notepad?
+
+			buffer.write(contentToWrite);
+		}
+
+		buffer.close();
+		file.close();
+	}
+	
+}
