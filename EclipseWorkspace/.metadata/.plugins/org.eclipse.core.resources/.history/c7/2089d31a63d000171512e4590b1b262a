@@ -1,0 +1,13 @@
+
+public class Methods {
+
+	public boolean checkMultiply(String string) {
+		// TODO Auto-generated method stub
+		String[] stringToInts = string.split(", ");
+		
+		
+		
+		return false;
+	}
+
+}

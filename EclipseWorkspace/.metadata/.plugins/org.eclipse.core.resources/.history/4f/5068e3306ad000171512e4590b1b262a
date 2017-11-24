@@ -1,0 +1,64 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class CalcRunnerTest {
+
+	Methods methods;
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		methods = new Methods();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void isMultipliableTest() {
+		
+		assertTrue("Result wasn't expected", methods.checkMultiply("5, 3, 15"));
+		
+	}
+	
+	@Test
+	public void isAddableTest() {
+		
+		assertTrue("Result wasn't expected", methods.checkAddition("4, 2, 8"));
+		assertTrue("Result wasn't expected", methods.checkAddition("6, 22, 12"));
+		assertTrue("Result wasn't expected", methods.checkAddition("6, 2, 3"));
+		assertTrue("Result wasn't expected", methods.checkAddition("9, 12, 108"));
+		assertFalse("Result wasn't expected", methods.checkAddition("5, 3, 6"));
+	}
+	
+	@Test
+	public void isSubtractableTest() {
+		
+		assertTrue("Result wasn't expectedA", methods.checkSubtraction("5, 2, 3"));
+		assertTrue("Result wasn't expectedB", methods.checkSubtraction("-1, 5, 6"));
+		assertTrue("Result wasn't expectedC", methods.checkSubtraction("-2, -3, 1"));
+		assertTrue("Result wasn't expectedD", methods.checkSubtraction("-8, -3, -5"));
+		assertFalse("Result wasn't expectedE", methods.checkSubtraction("7, 17, 3"));
+	}
+	
+	@Test
+	public void isDividableTest() {
+		
+		assertTrue("Result wasn't expected", methods.checkDivide("10, 5, 2"));
+		assertTrue("Result wasn't expected", methods.checkDivide("-10, -5, 2"));
+				
+	}
+
+}

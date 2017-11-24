@@ -8,4 +8,5 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="PrimeNumbers1"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="PrimeNumbers"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx8192m"/>
 </launchConfiguration>

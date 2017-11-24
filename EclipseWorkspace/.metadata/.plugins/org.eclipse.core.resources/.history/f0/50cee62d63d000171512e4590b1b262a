@@ -1,0 +1,16 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Methods {
+
+	public boolean checkMultiply(String string) {
+		// TODO Auto-generated method stub
+		String[] stringToInts = string.split(", ");
+		
+		Arrays.sort(stringToInts);
+		System.out.println(stringToInts[0]);
+		
+		return false;
+	}
+
+}

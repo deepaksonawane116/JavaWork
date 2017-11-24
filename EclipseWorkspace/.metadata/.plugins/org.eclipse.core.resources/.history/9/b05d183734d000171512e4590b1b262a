@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class ReadFromFile {
+
+	public void readFromFile(String fileName, ArrayList<String> arrayToPopulate) throws IOException {
+		BufferedReader in = new BufferedReader(new FileReader(fileName));
+		String line = null;
+		while ((line = in.readLine()) != null) {
+			arrayToPopulate.add(line);
+		}
+		in.close();
+	}
+
+	public String sortString(String string) {
+				
+		char tempArray[] = string.toCharArray();
+		
+		Arrays.sort(tempArray);
+		
+		return new String(tempArray);
+	}
+	
+	public void stringWithMostAnagrams() {
+		HashMap hashMap = new HashMap<>();
+	}
+
+	public int isAnagram(String string1, String string2) {
+		// TODO Auto-generated method stub
+		string1 = sortString(string1);
+		string2 = sortString(string2);
+		
+		string
+		
+		return null;
+	}
+}
+

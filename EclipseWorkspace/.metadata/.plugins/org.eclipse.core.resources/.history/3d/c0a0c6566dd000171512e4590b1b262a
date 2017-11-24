@@ -1,0 +1,108 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Methods {
+
+	public void DoMaths(String string) {
+		checkDivide(string);
+		checkMultiply(string);
+		checkAddition(string);
+		checkSubtraction(string);
+	}
+
+	public int[] sortStringToIntArray(String string) {
+		String[] stringArray = string.split(", ");
+		int[] stringsToInt = new int[stringArray.length];
+		int index = 0;
+		for (String i : stringArray) {
+			stringsToInt[index] = Integer.parseInt(i);
+			index++;
+		}
+		Arrays.sort(stringsToInt);
+
+		return stringsToInt;
+	}
+
+	public boolean checkMultiply(String string) {
+		// TODO Auto-generated method stub
+		int[] sorted = sortStringToIntArray(string);
+		int temp;
+		boolean isTrue = false;
+
+		for (int i : sorted) {
+			for (int j : sorted) {
+				if (Arrays.asList(sorted).indexOf(i) != Arrays.asList(sorted).indexOf(j)) {
+					temp = i * j;
+					for (int h : sorted) {
+						if (temp == h) {
+							System.out.println(i + " * " + j + " = " + h);
+							return true;
+						}
+					}
+				}
+			}
+		}
+
+		/*
+		 * if (sorted[0] * sorted[1] == sorted[2]) { return true; }
+		 */
+
+		return false;
+	}
+
+	public boolean checkAddition(String string) {
+		// TODO Auto-generated method stub
+		int[] sorted = sortStringToIntArray(string);
+
+		if (sorted[0] + sorted[1] == sorted[2]) {
+			return true;
+		} else if (sorted[2] + sorted[1] == sorted[0]) {
+			return true;
+		} else if (sorted[0] + sorted[2] == sorted[1]) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean checkSubtraction(String string) {
+		// TODO Auto-generated method stub
+		int[] sorted = sortStringToIntArray(string);
+		int temp;
+
+		for (int i : sorted) {
+			for (int j : sorted) {
+				temp = i - j;
+				for (int h : sorted) {
+					if (temp == h && h != i) {
+						System.out.println(i + " - " + j + " = " + h);
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean checkDivide(String string) {
+		// TODO Auto-generated method stub
+		int[] sorted = sortStringToIntArray(string);
+		int temp;
+
+		for (int i : sorted) {
+			for (int j : sorted) {
+				if (Arrays.asList(sorted).indexOf(i) != Arrays.asList(sorted).indexOf(j)) {
+					temp = i / j;
+					for (int h : sorted) {
+						if (temp == h) {
+							System.out.println(i + " / " + j + " = " + h);
+							return true;
+						}
+					}
+				}
+			}
+		}
+
+		return false;
+	}
+
+}

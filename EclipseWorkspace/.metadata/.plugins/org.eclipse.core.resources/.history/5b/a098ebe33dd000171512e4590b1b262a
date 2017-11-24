@@ -1,0 +1,59 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class ReadFromFile {
+	
+
+	
+	public void readFromFile(String fileName, HashMap<String, Integer> populate) throws IOException {
+		BufferedReader in = new BufferedReader(new FileReader(fileName));
+		String line = null;
+		while ((line = in.readLine()) != null) {
+			//arrayToPopulate.add(line);
+			populate.put(line, 0);
+		}
+		in.close();
+	}
+
+	public String sortString(String string) {
+		char tempArray[] = string.toCharArray();
+		Arrays.sort(tempArray);
+		return new String(tempArray);
+	}
+
+	public String stringWithMostAnagrams( HashMap wordMap) {
+		String toReturn = "";
+		Iterator it = wordMap.entrySet().iterator();
+		while(it.hasNext())
+		{
+			Map.Entry pair = (Map.Entry)it.next();
+			System.out.println(pair.getKey());
+		}
+		
+		return null;
+	}
+
+	public boolean isAnagram(String string1, String string2) {
+		// TODO Auto-generated method stub
+		
+		string1 = string1.toLowerCase();
+		string2 = string2.toLowerCase();
+		string1 = sortString(string1);
+		string2 = sortString(string2);
+		
+		if(string1.length() != string2.length())
+		{
+			return false;
+		}
+		return string1.equals(string2);
+				
+	}
+}

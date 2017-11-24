@@ -1,0 +1,39 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class PrimeNumbersTest {
+
+	PrimeNumbers1.PrimeCounters primeMethods;
+	
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		primeMethods = new PrimeNumbers1.PrimeCounters();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void integerTest() {
+		assertEquals("Result wasn't expected", 216816, primeMethods.primesLessThanNINT(3000000));
+	}
+
+	@Test
+	public void LongTest() {
+		assertEquals("Result wasn't expected", 216816, primeMethods.primesLessThanNLONG(3000000L));
+	}
+}

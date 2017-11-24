@@ -5,7 +5,6 @@ public class Garage {
 	static ArrayList<Vehicle> vehiclesInGarage = new ArrayList<Vehicle>();
 
 	public void addVehicle(Vehicle vehicleToAdd) {
-		// personArrayList.add(person1);
 		vehiclesInGarage.add(vehicleToAdd);
 	}
 
@@ -18,10 +17,6 @@ public class Garage {
 			if (vehiclesInGarage.get(i).type.equals(typeToRemove))
 				vehiclesInGarage.remove(i);
 		}
-		/*
-		 * for(Vehicle i : vehiclesInGarage) { if(i.type.equals(typeToRemove)) {
-		 * vehiclesInGarage.remove(i); } }
-		 */
 	}
 
 	public void valuesInArray() {

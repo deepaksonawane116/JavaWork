@@ -1,0 +1,28 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class LibraryFunctionsTest {
+
+	LibraryFunctions lf;
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+	
+	@Before
+	public void setUp() throws Exception {
+		lf = new LibraryFunctions();
+		Item b1 = new Book("Call of Cthulu", false, "H.P. Lovecraft", 25, 0);
+		Item b2 = new Book("Call of Cthulu", true, "H.P. Lovecraft", 25, 0);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+	
+
+}

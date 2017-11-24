@@ -1,4 +1,4 @@
-public class ItemBuilder {
+/*public class ItemBuilder {
 	private String itemName;
 	private boolean isCheckedOut = false;
 	private String typeOfItem = "Item";
@@ -28,4 +28,4 @@ public class ItemBuilder {
 		this.uniqueID = ID;
 		return this;
 	}
-}
+}*/

@@ -1,0 +1,42 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class ReadFromFile {
+
+	/*public void writeToFile(String fileName, BufferedWriter buffer, FileWriter file, ArrayList<String> personArrayList)
+			throws IOException {
+		file = new FileWriter(fileName);
+		buffer = new BufferedWriter(file);
+
+		for (Perople i : personArrayList) {
+			
+		}
+
+		buffer.close();
+		file.close();
+	}*/
+
+	public void readFromFile(String fileName, ArrayList<String> arrayToPopulate) throws IOException {
+		BufferedReader in = new BufferedReader(new FileReader(fileName));
+		String line = null;
+		while ((line = in.readLine()) != null) {
+			arrayToPopulate.add(line);
+		}
+		in.close();
+	}
+
+	public String sortString(String string) {
+				
+		char tempArray[] = string.toCharArray();
+		
+		Arrays.sort(tempArray);
+		
+		return new String(tempArray);
+	}
+}
+

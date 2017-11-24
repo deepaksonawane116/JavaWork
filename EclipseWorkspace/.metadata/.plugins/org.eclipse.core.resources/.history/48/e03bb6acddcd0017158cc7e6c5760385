@@ -1,0 +1,40 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class LibraryFunctionsTest {
+
+	LibraryFunctions libraryFunctions;
+	Item book2;
+	Item book1;
+	User user1;
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+	
+	@Before
+	public void setUp() throws Exception {
+		libraryFunctions = new LibraryFunctions();
+		book1 = new Book("Call of Cthulu", false, "H.P. Lovecraft", 25, 0);
+		book2 = new Book("Call of Cthulu CHECKED OUT", true, "H.P. Lovecraft", 25, 0);
+		
+		user1 = new User("00001", "UserName One");
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+	
+	@Test
+	public void findItemTest() {
+		libraryFunctions.addItem(book1);
+		assertEquals("Result was expected", book1, libraryFunctions.findItem(book1));
+	}
+	
+	
+
+}

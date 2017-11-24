@@ -1,0 +1,16 @@
+
+public class MorseCodeRunner {
+
+	public static void main (String[] args)
+	{
+	Methods methods = new Methods();
+	
+	String toTranslate = ".... . .-.. .-.. --- / -.. .- .. .-.. -.-- / .--. .-. --- --. .-. .- -- -- . .-. / --. --- --- -.. / .-.. ..- -.-. -.- / --- -. / - .... . / -.-. .... .- .-.. .-.. . -. --. . ... / - --- -.. .- -.--";
+	
+	String test = "HELLO";
+	System.out.println(test.split(""));
+	System.out.println(methods.translateFromMorse(toTranslate));
+	
+	}
+	
+}

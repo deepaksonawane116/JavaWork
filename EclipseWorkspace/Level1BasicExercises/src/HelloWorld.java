@@ -5,63 +5,62 @@ public class HelloWorld {
 
 	public static void main(String[] args) {
 
-		Methods m = new Methods();
+		Methods methods = new Methods();
 
 		int[] intArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-		int[] populateArray = new int[10];
-		
+		int[] arrayToPopulate = new int[10];
 
-		System.out.println(m.newHelloWorld());
+		System.out.println(methods.newHelloWorld());
 		System.out.println("");
 
 		// AcceptString("Print out this string");
 
 		System.out.println("ConditionIsFalse");
-		System.out.println(m.mathFuncBoolTRUEToAdd(5, 9, false));
+		System.out.println(methods.mathFuncBoolTRUEToAdd(5, 9, false));
 		System.out.println("");
 
 		System.out.println("ConditionIsTrue");
-		System.out.println(m.mathFuncBoolTRUEToAdd(4, 2, true));
+		System.out.println(methods.mathFuncBoolTRUEToAdd(4, 2, true));
 		System.out.println("");
 
 		System.out.println("OneNumberIs0");
-		System.out.println(m.mathFuncBoolTRUEToAdd(5, 0, false));
-		System.out.println(m.mathFuncBoolTRUEToAdd(0, 9, false));
+		System.out.println(methods.mathFuncBoolTRUEToAdd(5, 0, false));
+		System.out.println(methods.mathFuncBoolTRUEToAdd(0, 9, false));
 		System.out.println("");
 
 		System.out.println("ForLoop");
-		m.forLoop(intArray);
+		methods.forLoop(intArray);
 		System.out.println("");
 
 		System.out.println("ValuesInArray");
-		m.valuesInArray(intArray);
+		methods.valuesInArray(intArray);
 		System.out.println("");
 
 		System.out.println("PopulateArray");
-		m.populateArrayAndMultiply(populateArray);
+		methods.populateArrayAndMultiply(arrayToPopulate);
 		System.out.println("");
 
 		System.out.println("BlackJack");
-		System.out.println(m.blackJack(1, 20));
-		System.out.println(m.blackJack(2, 19));
-		System.out.println(m.blackJack(22, 20));
-		System.out.println(m.blackJack(19, 1));
+		System.out.println(methods.blackJack(1, 20));
+		System.out.println(methods.blackJack(2, 19));
+		System.out.println(methods.blackJack(22, 20));
+		System.out.println(methods.blackJack(19, 1));
 		System.out.println("");
 
 		System.out.println("Unique Sum");
-		System.out.println(m.uniqueSum(1, 2, 3)); // 6
-		System.out.println(m.uniqueSum(1, 1, 3)); // 4
-		System.out.println(m.uniqueSum(1, 2, 1)); // 3
-		System.out.println(m.uniqueSum(1, 2, 2)); // 3
-		System.out.println(m.uniqueSum(1, 1, 1)); // 1
+		System.out.println(methods.uniqueSum(1, 2, 3)); // 6
+		System.out.println(methods.uniqueSum(1, 1, 3)); // 4
+		System.out.println(methods.uniqueSum(1, 2, 1)); // 3
+		System.out.println(methods.uniqueSum(1, 2, 2)); // 3
+		System.out.println(methods.uniqueSum(1, 1, 1)); // 1
 		System.out.println("");
 
 		System.out.println("Too Hot?");
-		System.out.println(m.tooHot(50, true));
-		System.out.println(m.tooHot(95, true));
-		System.out.println(m.tooHot(95, false));
-		System.out.println(m.tooHot(65, true));
-		System.out.println(m.tooHot(60, false));
+		System.out.println(methods.tooHot(50, true));
+		System.out.println(methods.tooHot(95, true));
+		System.out.println(methods.tooHot(95, false));
+		System.out.println(methods.tooHot(65, true));
+		System.out.println(methods.tooHot(60, false));
 		System.out.println("");
 
 		Person person1 = new Person("Jim Dave", 21, "Fishmonger");
@@ -69,14 +68,16 @@ public class HelloWorld {
 		Person person3 = new Person("Lucy Mel", 37, "Official Football Pitch Grass Height Measurer");
 		Person person4 = new Person("Racheal Gambon", 23, "Unofficial Conkers Referee");
 
-		m.addPerson(person1);
-		m.addPerson(person2);
-		m.addPerson(person3);
-		m.addPerson(person4);
+		methods.addPerson(person1);
+		methods.addPerson(person2);
+		methods.addPerson(person3);
+		methods.addPerson(person4);
 
-		m.printArray();
+		methods.printArray();
 
-		m.searchArray("Lucy Mel");
+		methods.searchArray("Lucy Mel");
+		
+		//System.out.println(m.findPrimesBelowX(300));
 
 	}
 }
@@ -87,26 +88,35 @@ public class HelloWorld {
  */
 class Methods {
 	
+
 	private ArrayList<Person> personArrayList = new ArrayList<Person>();
-	
-	public void addPerson (Person p) {
+
+
+	public void addPerson(Person p) {
 		personArrayList.add(p);
 	}
 	
-	public void printArray()
-	{
+	public Person getPerson(int index) {
+		return personArrayList.get(index);
+	}
+
+	public void printArray() {
 		for (Person i : personArrayList) {
 			System.out.println(i.toString());
 		}
 	}
-	
-	public void searchArray(String name) {
+
+	public Person searchArray(String name) {
+		Person toReturn = null;
 		for (Person i : personArrayList) {
 			if (i.getName().equals(name)) {
-				System.out.println("You have found " + name);
-				System.out.println(i.toString());
+				//System.out.println("You have found " + name);
+			//	System.out.println(i.toString());
+				toReturn = i;
+				//break;
 			}
 		}
+		return toReturn;
 	}
 
 	public String newHelloWorld() {
@@ -190,6 +200,7 @@ class Methods {
 		returnValue = num1 + num2 + num3;
 
 		return returnValue;
+		
 	}
 
 	public boolean tooHot(int temp, boolean isSummer) {

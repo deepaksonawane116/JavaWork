@@ -1,0 +1,22 @@
+import javax.sound.sampled.*;
+
+
+public class MorseCodeRunner {
+
+	public static void main (String[] args)
+	{
+	Methods methods = new Methods();
+	
+	String toTranslate = ".... . .-.. .-.. --- / -.. .- .. .-.. -.-- / .--. .-. --- --. .-. .- -- -- . .-. / --. --- --- -.. / .-.. ..- -.-. -.- / --- -. / - .... . / -.-. .... .- .-.. .-.. . -. --. . ... / - --- -.. .- -.--";
+	
+	System.out.println(methods.translateFromMorse(toTranslate));
+	
+	String toMorse = "Hello world";
+	
+	System.out.println(methods.translateToMorse(toMorse));
+	
+	
+	java.awt.Toolkit.getDefaultToolkit().beep();
+	}
+	
+}
